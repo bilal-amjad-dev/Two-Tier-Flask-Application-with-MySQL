@@ -5,7 +5,11 @@ In this goal, we will docker 🐳:
 - Run container locally
 - Push to Dockerhub
 
-
+Devops has:
+- Code
+- Build
+- Deploy
+We are working on Code and Build in this goal.
 ### Step 1: Code
   ```bash
 git clone https://github.com/<your-username>/two-tier-flask-app.git
@@ -14,6 +18,7 @@ cd two-tier-flask-app
 
 ### Step 2: Build
 - Dockerfile
+
 We have Dockerfile
 - Build
 (Before build, please create a network because we have 2 tier application, so both container can talk to each other.)
