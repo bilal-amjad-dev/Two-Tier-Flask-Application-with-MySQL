@@ -1,4 +1,5 @@
-# Two-Tier-Flask-Application-with-MySQL-Docker
+# Two-Tier Flask Application with MySQL and Docker
+
 In this goal, we will docker 🐳:
 - Dockerfile
 - Image
@@ -9,11 +10,13 @@ Devops has:
 - Code
 - Build
 - Deploy
+
 We are working on Code and Build in this goal.
 ### Step 1: Code
   ```bash
-git clone https://github.com/<your-username>/two-tier-flask-app.git
-cd two-tier-flask-app
+git clone https://github.com/<your-username>/Two-Tier-Python-Flask-App-with-MySQL-Docker
+.git
+cd Two-Tier-Python-Flask-App-with-MySQL-Docker
   ```
 
 ### Step 2: Build
