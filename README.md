@@ -1,8 +1,5 @@
 ## Two-Tier Flask Application with MySQL and Docker
 
-In this goal, we will docker 🐳:
-
-
 This project demonstrates how to **containerize a two-tier application** consisting of a **Python Flask application** and a **MySQL database** using Docker. The guide covers everything from building the Docker images to running the containers locally and pushing them to Docker Hub.
 
 ## What is a Two-Tier Application?
