@@ -20,17 +20,17 @@ cd Two-Tier-Python-Flask-App-with-MySQL-Docker
   ```
 
 ### Step 2: Build
-- Dockerfile
+- **Dockerfile**
 
 We have Dockerfile
-- Build
+- **Build**
 
 (Before build, please create a network because we have 2 tier application, so both container can talk to each other.)
 ```bash
 docker network create twotier
 docker build -t flaskapp .
 ```
-- Run container locally
+- **Run container locally**
   - MySQL
 ```bash
 docker run -d \
@@ -56,7 +56,7 @@ docker run -d \
 ```
 
 
-### Let's check weather our data has done into MySQL database or not.
+> Let's check weather our data has done into MySQL database or not.
 ```bash
 docker exec -it mysql bash
 mysql -u root -p
@@ -72,7 +72,7 @@ exit
 ```
 
 
-- Push
+- **Push**
 ```bash
 docker login
 docker tag flaskapp YOUR-DOCKERHUB-USERNAME/flaskapp:latest
