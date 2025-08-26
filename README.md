@@ -1,2 +1,71 @@
-# Two-Tier-Flask-Application-with-MySQL
-Two-Tier-Flask-Application-with-MySQL
+# Two-Tier-Flask-Application-with-MySQL-Docker
+In this goal, we will docker 🐳:
+- Dockerfile
+- Image
+- Run container locally
+- Push to Dockerhub
+
+
+### Step 1: Code
+  ```bash
+git clone https://github.com/<your-username>/two-tier-flask-app.git
+cd two-tier-flask-app
+  ```
+
+### Step 2: Build
+- Dockerfile
+We have Dockerfile
+- Build
+(Before build, please create a network because we have 2 tier application, so both container can talk to each other.)
+```bash
+docker network create twotier
+docker build -t flaskapp .
+```
+- Run container locally
+  - MySQL
+```bash
+docker run -d \
+    --name mysql \
+    -v mysql-data:/var/lib/mysql \
+    --network=twotier \
+    -e MYSQL_DATABASE=mydb \
+    -e MYSQL_ROOT_PASSWORD=admin \
+    -p 3306:3306 \
+    mysql:5.7
+```
+  - Python Flask App
+```bash
+docker run -d \
+    --name flaskapp \
+    --network=twotier \
+    -e MYSQL_HOST=mysql \
+    -e MYSQL_USER=root \
+    -e MYSQL_PASSWORD=admin \
+    -e MYSQL_DB=mydb \
+    -p 5000:5000 \
+    flaskapp:latest
+```
+
+
+### Let's check weather our data has done into MySQL database or not.
+```bash
+docker exec -it mysql bash
+mysql -u root -p
+# Enter password: admin
+show databases;
+use mydb;
+show tables;
+select * from messages;
+
+# Exit MySQL shell and then container bash
+exit
+exit
+```
+
+
+- Push
+```bash
+docker login
+docker tag flaskapp YOUR-DOCKERHUB-USERNAME/flaskapp:latest
+docker push YOUR-DOCKERHUB-USERNAME/flaskapp:latest
+```
