@@ -24,6 +24,7 @@ cd Two-Tier-Python-Flask-App-with-MySQL-Docker
 
 We have Dockerfile
 - Build
+
 (Before build, please create a network because we have 2 tier application, so both container can talk to each other.)
 ```bash
 docker network create twotier
